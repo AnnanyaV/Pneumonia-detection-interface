@@ -21,7 +21,7 @@ from flask_mail import Mail, Message
 
 
 # database setup
-app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
+app.config['SECRET_KEY'] = ''
   
 app.config['MYSQL_HOST'] = ''
 app.config['MYSQL_USER'] = ''
@@ -32,7 +32,7 @@ app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
 mysql = MySQL(app)
 
 #mail configuration
-app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_SERVER']=''
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = ''
 app.config['MAIL_PASSWORD'] = ''
@@ -160,7 +160,7 @@ def home():
             msg = Message(
                     'Treatment required',
                     sender =email_id,
-                    recipients = ['annanyaved.07@gmail.com','dharanirocks002@gmail.com']
+                    recipients = ['']
                 )
             msg.body = 'Patient name:'+patient+'Disease: Pneumonia'
             mail.send(msg)
@@ -193,75 +193,9 @@ def account():
     if g.username:
        return render_template('account.html')
     return render_template('index.html',)
-  #  if form.validate_on_submit():
-    #    if form.email.data == 'admin@blog.com' and form.password.data == 'password':
-     #       flash('You have been logged in!', 'success')
-      #      return redirect(url_for('home'))
-       # else:
-        #    flash('Login Unsuccessful. Please check username and password', 'danger')
-   # return render_template('login.html', title='Login', form=form)
+ 
 
 
 
-    #if form.validate_on_submit():
-     #   img=form.picture.data
-        
-       # empPicture = convertToBinaryData(img)
-       # cursor.execute('update table user set lung_image= %s where email= %s',(empPicture,m))
-      #  mysql.connection.commit()
-
-        ##ADDING IMAGE
-      #  if form.picture.data:
-          #  picture_file = save_picture(form.picture.data)
-           # current_user.image_file = picture_file
-       # current_user.username = form.username.data
-        #current_user.email = form.email.data
-    #    cursor.execute('update table user set lung_image= %s where username= %s',(form.picture.data,current_user.))
-     #   mysql.connection.session.commit()
-     #   flash('Your account has been updated!', 'success')
-       # return redirect(url_for(''))
-   # image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-
-
-    
-# @app.route("/")
-# def index():
-#     # data = request.json
-#     # df = pd.DataFrame(data, index=[0])
-#     img_dims = 150
-#     test_data=[]
-#     img = plt.imread('check.jpeg')
-#     img = cv2.resize(img, (img_dims, img_dims))
-#     img = np.dstack([img, img, img])
-#     img = img.astype('float32') / 255
-#     test_data.append(img)
-#     test_data = np.array(test_data)
-#     preds = model.predict(test_data)
-#     # predicted_price = expm1(prediction.flatten()[0])
-#     print('hi')
-#     # print(str(predicted_price))
-#     return render_template('main.html', prediction=preds)
-# if __name__ == "__main__":
-#     app.run(debug=True)
-
-
-
-# @app.route("/main")
-# def indexmain():
-#     # data = request.json
-#     # df = pd.DataFrame(data, index=[0])
-#     img_dims = 150
-#     test_data=[]
-#     img = plt.imread('check.jpeg')
-#     img = cv2.resize(img, (img_dims, img_dims))
-#     img = np.dstack([img, img, img])
-#     img = img.astype('float32') / 255
-#     test_data.append(img)
-#     test_data = np.array(test_data)
-#     preds = model.predict(test_data)
-#     # predicted_price = expm1(prediction.flatten()[0])
-#     print('hi')
-#     # print(str(predicted_price))
-#     return render_template('mainmain.html', prediction=preds)
 
 
